@@ -21,6 +21,7 @@ defaultLayout inner = H.docTypeHtml ! A.lang "en" $ [hsx|
     <title>{pageTitleOrDefault "App"}</title>
 </head>
 <body>
+    {navbar}
     <div class="container mt-4">
         {renderFlashMessages}
         {inner}
@@ -71,3 +72,17 @@ metaTags = [hsx|
     <meta property="og:description" content="TODO"/>
     {autoRefreshMeta}
 |]
+
+navbar :: Html
+navbar = [hsx|
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Async Standup</a>
+  <div class="navbar-right">{loginLogoutButton}</div>
+</nav>
+|]
+    where
+        loginLogoutButton :: Html
+        loginLogoutButton =
+            case fromFrozenContext @(Maybe User) of
+                Just user -> [hsx|<a class="js-delete js-delete-no-confirm text-secondary" href={DeleteSessionAction}>Logout</a>|]
+                Nothing -> [hsx|<a class="text-secondary" href={NewSessionAction}>Login</a>|]
