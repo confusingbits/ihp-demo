@@ -85,4 +85,4 @@ navbar = [hsx|
         loginLogoutButton =
             case fromFrozenContext @(Maybe User) of
                 Just user -> [hsx|<a class="js-delete js-delete-no-confirm text-secondary" href={DeleteSessionAction}>Logout</a>|]
-                Nothing -> [hsx|<a class="text-secondary" href={NewSessionAction}>Login</a>|]
+                Nothing -> [hsx|<a class="text-secondary" href={SignupAction}>Signup</a><a class="text-secondary" href={NewSessionAction}>Login</a>|]

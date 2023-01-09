@@ -39,6 +39,8 @@ data SessionsController
     = NewSessionAction
     | CreateSessionAction
     | DeleteSessionAction
+    | SignupAction
+    | CreateSignupAction
     deriving (Eq, Show, Data)
 data UsersController
     = UsersAction
