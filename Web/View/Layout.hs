@@ -76,7 +76,7 @@ metaTags = [hsx|
 navbar :: Html
 navbar = [hsx|
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Async Standup</a>
+  <a class="navbar-brand" href="/">Async Standup</a>
   <div class="navbar-right">{loginLogoutButton}</div>
 </nav>
 |]
@@ -84,5 +84,5 @@ navbar = [hsx|
         loginLogoutButton :: Html
         loginLogoutButton =
             case fromFrozenContext @(Maybe User) of
-                Just user -> [hsx|<a class="js-delete js-delete-no-confirm text-secondary" href={DeleteSessionAction}>Logout</a>|]
-                Nothing -> [hsx|<a class="text-secondary" href={SignupAction}>Signup</a><a class="text-secondary" href={NewSessionAction}>Login</a>|]
+                Just user -> [hsx|<a class="js-delete js-delete-no-confirm btn btn-primary mx-2" href={DeleteSessionAction}>Logout</a>|]
+                Nothing -> [hsx|<a class="btn btn-primary" href={SignupAction}>Signup</a><a class="btn btn-primary mx-2" href={NewSessionAction}>Login</a>|]
