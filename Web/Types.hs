@@ -51,3 +51,12 @@ data UsersController
     -- | UpdateUserAction { userId :: !(Id User) }
     -- | DeleteUserAction { userId :: !(Id User) }
     deriving (Eq, Show, Data)
+data ProjectsController
+    = ProjectsAction
+    | NewProjectAction
+    | ShowProjectAction { projectId :: !(Id Project) }
+    | CreateProjectAction
+    | EditProjectAction { projectId :: !(Id Project) }
+    | UpdateProjectAction { projectId :: !(Id Project) }
+    | DeleteProjectAction { projectId :: !(Id Project) }
+    deriving (Eq, Show, Data)

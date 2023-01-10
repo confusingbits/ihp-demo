@@ -21,4 +21,9 @@ CREATE TABLE users (
     failed_login_attempts INT DEFAULT 0 NOT NULL,
     logins INT DEFAULT 0 NOT NULL
 );
+CREATE TABLE projects (
+    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    standup_prompt TEXT NOT NULL
+);
 ALTER TABLE comments ADD CONSTRAINT comments_ref_post_id FOREIGN KEY (post_id) REFERENCES posts (id) ON DELETE CASCADE;

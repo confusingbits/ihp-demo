@@ -77,6 +77,7 @@ navbar :: Html
 navbar = [hsx|
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">Async Standup</a>
+  <a class="" href={ProjectsAction}>Projects</a>
   <div class="navbar-right">{loginLogoutButton}</div>
 </nav>
 |]
